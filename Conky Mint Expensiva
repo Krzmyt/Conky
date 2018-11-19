@@ -1,0 +1,82 @@
+background yes
+double_buffer yes
+
+alignment top_right
+
+border_width 10
+cpu_avg_samples 2
+default_color white
+default_outline_color white
+default_shade_color white
+draw_borders no
+draw_graph_borders yes
+draw_outline no
+draw_shades no
+
+gap_x 10
+gap_y 10
+net_avg_samples 2
+no_buffers yes
+out_to_console no
+out_to_stderr no
+extra_newline no
+
+own_window yes
+own_window_type normal
+own_window_transparent no
+own_window_colour 000000
+own_window_argb_visual yes
+own_window_argb_value 0
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+minimum_size 170 0
+stippled_borders 0
+update_interval 1.0
+uppercase no
+use_spacer none
+
+show_graph_scale no
+show_graph_range no
+
+use_xft yes
+xftalpha 0.1
+xftfont Ubuntu:size=10
+color0 white
+color1 EAEAEA
+color2 FFA300
+color3 grey
+color4 97DA54
+
+
+TEXT
+
+${font Expansiva:size=20:bold}${alignc}${color4}${time %T}
+${font Expansiva:size=13}${alignc}${time %e %B %G}
+${voffset 10 }${font AvantGardeLTMedium:bold:size=10}${color4}System ${color slate grey}${hr 1}${font}
+${voffset 10 }${color slate grey}Hostname           ${alignr}${color}${nodename}
+${color slate grey}${sysname}         ${alignr}${color}${kernel}-${machine}
+${color slate grey}Uptime             ${alignr}${color}${uptime}
+${color slate grey}Battery Status     ${alignr}${color}${battery}
+${color slate grey}Fan Speed:         ${alignr}${color}${exec sensors | grep 'RPM'| cut -c12-25}
+${voffset 10}${font AvantGardeLTMedium:bold:size=10}${color4}Procesor ${color slate grey}${hr 1}${font}
+${voffset 10}${color slate grey}CPU ${color0}${offset 60}${cpu cpu0}%${offset 15} ${color}${acpitemp}°C${offset 15}${color1}${color}${freq_g} GHz      
+${voffset 10 }${font AvantGardeLTMedium:bold:size=10}${color4}Procesy ${color slate grey}${hr 1}
+${voffset 10}${font}${color1}${top name 1} $alignr ${top cpu 1}%
+${top name 2} $alignr ${top cpu 2}%
+${top name 3} $alignr ${top cpu 3}%
+${voffset 10}${font AvantGardeLTMedium:bold:size=10}${color4}Memory ${color slate grey}${hr 1}${font}
+${voffset 10}${color slate grey}Memory             ${color}${alignr}${mem} / ${memmax}
+${voffset 10}${color slate grey}Currently          ${color}${memperc}%${color slate gray}   ${membar}
+${color white}${font}
+${top_mem name 1} $alignr ${top_mem mem_res 1}
+${top_mem name 2} $alignr ${top_mem mem_res 2}
+${top_mem name 3} $alignr ${top_mem mem_res 3}
+${voffset 10}${font AvantGardeLTMedium:bold:size=10}${color4}HDD ${color slate grey}${hr 1}${font}
+${voffset 10}${color slate grey}System              
+${voffset 10}${color1}${alignc}${fs_used /} / ${fs_size /} ${color}${alignr}
+${color slate gray}${fs_bar}
+${color1}${alignc}${fs_used_perc /} % Used / ${fs_free_perc /} % Free
+${voffset 10}${color slate grey}Home             
+${voffset 10}${color1}${alignc}${fs_used /} / ${fs_size /} ${color}${alignr}
+${color slate gray}${fs_bar}
+${color1}${alignc}${fs_used /home} / ${fs_size /home}
